@@ -10,3 +10,20 @@ wetter@wetter02:~/weatherstation/read_sensors $ venv/bin/pip install requirement
 
 Create .env ile with parameters to access the messagebroker
 
+
+## Database
+
+Create Table:
+
+`
+CREATE TABLE ambientdata (
+  dt TIMESTAMPTZ NOT NULL,
+  sensor VARCHAR(255) NOT NULL,
+  humidity DOUBLE PRECISION NULL,
+  temperature DOUBLE PRECISION NULL,
+  air_pressure DOUBLE PRECISION NULL
+);
+SELECT create_hypertable('ambientdata','dt');
+
+`
+
