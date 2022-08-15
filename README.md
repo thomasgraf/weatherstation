@@ -30,5 +30,14 @@ CREATE TABLE ambientdata (
   
 SELECT create_hypertable('ambientdata','dt');
 
+Create grafana user:
+CREATE USER grafana WITH ENCRYPTED PASSWORD 'mypassword';
+
+weatherdata=# GRANT SELECT ON TABLE sensordata to grafana;
+GRANT
+weatherdata=# GRANT CONNECT ON DATABASE weatherdata TO grafana;
+GRANT
+weatherdata=# GRANT USAGE ON SCHEMA public TO grafana;
+GRANT
 `
 
