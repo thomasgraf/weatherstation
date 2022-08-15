@@ -12,8 +12,12 @@ Create .env ile with parameters to access the messagebroker
 
 
 ## Database
+Create Extension:  
 
-Create Table:
+
+CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
+
+Create Table:  
 
 `
 CREATE TABLE ambientdata (
@@ -22,7 +26,8 @@ CREATE TABLE ambientdata (
   humidity DOUBLE PRECISION NULL,
   temperature DOUBLE PRECISION NULL,
   air_pressure DOUBLE PRECISION NULL
-);
+);  
+  
 SELECT create_hypertable('ambientdata','dt');
 
 `
